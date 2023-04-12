@@ -7,7 +7,15 @@ window.addEventListener("load", () => {
   //Get button
   const btnGet = document.getElementById("btnGet");
   btnGet.addEventListener("click", btnGetClick);
+  //Get by name button
+  const btnGetName = document.getElementById("btnGetName");
+  btnGetName.addEventListener("click", btnGetNameClick);
+  //Dark by name button
+  const btnDark = document.getElementById("btnDark");
+  btnDark.addEventListener("click", btnDarkClick);
 
+  const btnLight = document.getElementById("btnLight");
+  btnLight.addEventListener("click", btnLightClick);
   //Callbacks
   window.api.gotEmployees(gotEmployees);
   window.api.gotEmployeeUpdatedResult(gotEmployeeUpdatedResult);
@@ -44,6 +52,32 @@ const btnGetClick = (event) => {
   event.preventDefault();
 
   window.api.getEmployees();
+};
+
+const btnGetNameClick = (event) => {
+  //TODO
+  console.log("btnGetNameClick button clicked");
+  event.preventDefault();
+
+  window.api.getEmployeesName();
+};
+
+const btnDarkClick = (event) => {
+  //TODO
+  //box mt-3
+  console.log("btnDark button clicked");
+  event.preventDefault();
+  document.getElementById('section').style.backgroundColor = 'black'; 
+  document.getElementById('titleId').style.color = 'white'; 
+};
+
+const btnLightClick = (event) => {
+  //TODO
+  //box mt-3
+  console.log("btnLightClick button clicked");
+  event.preventDefault();
+  document.getElementById('section').style.backgroundColor = 'white'; 
+  document.getElementById('titleId').style.color = 'black'; 
 };
 
 const btnSaveClick = (event) => {

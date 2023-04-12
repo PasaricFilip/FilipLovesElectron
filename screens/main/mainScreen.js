@@ -16,7 +16,6 @@ class MainScreen {
       height: this.position.height,
       title: "This is a test application",
       show: false,
-      removeMenu: true,
       acceptFirstMouse: true,
       autoHideMenuBar: true,
       webPreferences: {
@@ -40,6 +39,8 @@ class MainScreen {
 
     this.window.loadFile("./screens/main/main.html");
   }
+
+  
 
   close() {
     this.window.close();

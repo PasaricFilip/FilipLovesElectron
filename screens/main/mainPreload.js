@@ -15,6 +15,14 @@ let getEmployees = () => {
   });
 };
 
+let getEmployeesName = () => {
+  console.log(`mainPreload > getEmployeesName`);
+
+  employees.getEmployeesName().then((res) => {
+    gotEmployeeCallback(res);
+  });
+};
+
 let gotEmployees = (callback) => {
   gotEmployeeCallback = callback;
 };
@@ -58,6 +66,7 @@ let gotEmployeeUpdatedResult = (callback) => {
 
 contextBridge.exposeInMainWorld("api", {
   getEmployees,
+  getEmployeesName,
   gotEmployees,
   saveEmployee,
   updateEmployee,

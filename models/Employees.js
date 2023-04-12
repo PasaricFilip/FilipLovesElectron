@@ -36,6 +36,28 @@ class Employees {
     return res;
   };
 
+  getEmployeesName = async () => {
+    console.log(`Employees.js > getEmployeesName`);
+
+    const employees = await this.#getCollection();
+    let res = await employees.find({}).toArray();
+
+    let text = document.getElementById("searchbar").value;
+    res = res.filter(employee => employee.name.toLowerCase().includes(text)); // filter by name similarity
+
+    res = res.map((employee) => {
+      return {
+        id: employee._id.toHexString(),
+        name: employee.name,
+        position: employee.position,
+        salary: employee.salary,
+      };
+    });
+
+    console.log(res);
+    return res;
+  };
+
   addEmployee = async (employee) => {
     console.log(`Employee.js > addEmployee: ${employee}`);
 
